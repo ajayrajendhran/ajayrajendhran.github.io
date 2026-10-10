@@ -1,0 +1,157 @@
+:root {
+  --bg: #0a0b0d;
+  --surface: #111317;
+  --surface-2: #14171b;
+  --line: #1e2126;
+  --line-strong: #3a3f47;
+  --text: #e7e8e3;
+  --text-strong: #f5f6f1;
+  --text-muted: #b9bec5;
+  --text-dim: #9aa0a8;
+  --text-faint: #6e747d;
+  --accent: #3ddc8e;
+  --on-accent: #06140d;
+  --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --sans: 'Space Grotesk', system-ui, sans-serif;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  color: #9af2c6;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--text-strong);
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.wrap {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding-inline: 24px;
+}
+
+.mono {
+  font-family: var(--mono);
+}
+
+.section {
+  padding-block: 64px;
+}
+
+.section-title {
+  font-size: 36px;
+  line-height: 1.15;
+}
+
+.section-lede {
+  color: var(--text-dim);
+  margin-top: 8px;
+  margin-bottom: 32px;
+  max-width: 680px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.btn-primary:hover {
+  color: var(--on-accent);
+  filter: brightness(1.1);
+}
+
+.btn-ghost {
+  border: 1.5px solid var(--line-strong);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.btn-ghost:hover {
+  border-color: var(--text-dim);
+  color: var(--text-strong);
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex: none;
+}
+
+.pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .pulse {
+    animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding-block: 48px;
+  }
+  .section-title {
+    font-size: 28px;
+  }
+}

@@ -1,0 +1,32 @@
+---
+import { dependencies } from '../data/changelog';
+
+const width = Math.max(...dependencies.map(([k]) => k.length)) + 2;
+---
+
+<section id="dependencies" class="wrap section">
+  <h2 class="section-title">Dependencies</h2>
+  <p class="section-lede">The tools these services run on. Tools, not the job.</p>
+  <pre class="lock mono"><span class="comment"># ajay.lock</span>
+{dependencies.map(([k, v]) => <Fragment><span class="key">{k.padEnd(width)}</span>= {v}{'\n'}</Fragment>)}</pre>
+</section>
+
+<style>
+  .lock {
+    margin: 0;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 28px;
+    font-size: 15px;
+    line-height: 2;
+    color: #c6cad0;
+    overflow-x: auto;
+  }
+  .comment {
+    color: var(--text-faint);
+  }
+  .key {
+    color: var(--accent);
+  }
+</style>

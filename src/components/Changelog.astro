@@ -1,0 +1,67 @@
+---
+import { changelog } from '../data/changelog';
+---
+
+<section id="changelog" class="wrap section">
+  <h2 class="section-title">Changelog</h2>
+  <p class="section-lede">Every release of me so far.</p>
+  <ol class="log">
+    {
+      changelog.map((e, i) => (
+        <li class="entry">
+          <div class="tagline mono">
+            <span class:list={['tag', { latest: i === 0 }]}>{i === 0 ? `${e.version} · LATEST` : e.version}</span>
+            <span class="dates">{e.dates}</span>
+          </div>
+          <h3>{e.title}</h3>
+          <p>{e.body}</p>
+        </li>
+      ))
+    }
+  </ol>
+</section>
+
+<style>
+  .log {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 28px;
+    border-left: 2px solid #2a2e35;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .entry {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .tagline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    font-size: 13px;
+  }
+  .tag {
+    padding: 3px 8px;
+    border: 1px solid var(--line-strong);
+    border-radius: 3px;
+  }
+  .tag.latest {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--on-accent);
+    font-weight: 700;
+  }
+  .dates {
+    color: #a9aeb6;
+  }
+  h3 {
+    font-size: 24px;
+  }
+  p {
+    color: var(--text-muted);
+    max-width: 760px;
+  }
+</style>

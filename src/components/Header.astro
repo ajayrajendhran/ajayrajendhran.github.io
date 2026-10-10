@@ -1,0 +1,82 @@
+---
+import { site } from '../data/site';
+import { postmortems } from '../data/postmortems';
+
+const links = [
+  { href: '#services', label: 'services' },
+  { href: '#changelog', label: 'changelog' },
+  ...(postmortems.length ? [{ href: '#postmortems', label: 'postmortems' }] : []),
+  { href: '#dependencies', label: 'dependencies' },
+];
+const [sub, ...rest] = site.domain.split('.');
+---
+
+<div class="statusbar">
+  <div class="wrap statusbar-inner mono">
+    <span><span class="pulse" aria-hidden="true">●</span> ALL SYSTEMS OPERATIONAL</span>
+    <span>ENGINEER STATUS: OPEN TO NEW ROLES</span>
+  </div>
+</div>
+
+<header class="header">
+  <nav class="wrap nav" aria-label="Main">
+    <a href="#top" class="brand mono">{sub}.<span>{rest[0]}</span>.{rest.slice(1).join('.')}</a>
+    <div class="links mono">
+      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+      <a href="#page" class="page-link">page me →</a>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .statusbar {
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+  .statusbar-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    padding-block: 10px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .header {
+    border-bottom: 1px solid var(--line);
+  }
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-block: 16px;
+  }
+  .brand {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .brand span {
+    color: var(--accent);
+  }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 22px;
+    font-size: 14px;
+  }
+  .links a {
+    color: #a9aeb6;
+    text-decoration: none;
+    padding-block: 10px;
+  }
+  .links a:hover {
+    color: var(--text-strong);
+  }
+  .links .page-link {
+    color: var(--accent);
+  }
+</style>

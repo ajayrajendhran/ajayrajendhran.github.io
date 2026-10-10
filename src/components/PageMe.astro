@@ -1,0 +1,70 @@
+---
+import { site } from '../data/site';
+---
+
+<section id="page" class="pageme">
+  <div class="wrap inner">
+    <p class="mono kicker"><span class="dot pulse" aria-hidden="true"></span> ON-CALL ROTATION: OPEN</p>
+    <h2>Need someone to own your production?</h2>
+    <p class="lede">{site.openTo}</p>
+    <div class="actions">
+      <a href={`mailto:${site.email}`} class="btn btn-primary">Page Ajay →</a>
+      {site.linkedin && <a href={site.linkedin} class="btn btn-ghost" rel="me noopener" target="_blank">LinkedIn</a>}
+      {site.github && <a href={site.github} class="btn btn-ghost" rel="me noopener" target="_blank">GitHub</a>}
+    </div>
+  </div>
+  <footer class="wrap foot mono">
+    <span>© {new Date().getFullYear()} {site.name} · {site.email}</span>
+    <span>built with Astro · deployed by GitHub Actions</span>
+  </footer>
+</section>
+
+<style>
+  .pageme {
+    border-top: 1px solid var(--line);
+    margin-top: 48px;
+  }
+  .inner {
+    padding-block: 88px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .kicker {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--accent);
+  }
+  h2 {
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    max-width: 860px;
+  }
+  .lede {
+    color: var(--text-muted);
+    font-size: 19px;
+    max-width: 680px;
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 8px;
+  }
+  .actions .btn {
+    min-height: 52px;
+  }
+  .foot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    padding-block: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 12px;
+    color: #80868f;
+  }
+</style>

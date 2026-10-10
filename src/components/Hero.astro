@@ -1,0 +1,65 @@
+---
+import { site } from '../data/site';
+
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+
+<section id="top" class="wrap hero">
+  <p class="eyebrow mono">ON-CALL ENGINEER · DEVOPS · {site.experience.toUpperCase()} · {site.location.toUpperCase()}</p>
+  <h1>
+    {site.name}.<br />
+    <span class="dim">I don't just build infra.</span><br />
+    I own the product in production.
+  </h1>
+  <p class="lede">
+    From the first network to the 2 a.m. incident: I ship, run and fix whole applications. Right now that includes
+    SparrowPay, SurveySparrow's payment platform.
+  </p>
+  <div class="actions">
+    <a href="#services" class="btn btn-primary">View services I own</a>
+    <a href={base + site.resume} class="btn btn-ghost" download>resume.pdf</a>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding-top: 88px;
+    padding-bottom: 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .eyebrow {
+    font-size: 14px;
+    color: #a9aeb6;
+  }
+  h1 {
+    font-size: clamp(40px, 7vw, 76px);
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    max-width: 980px;
+  }
+  .dim {
+    color: var(--text-faint);
+  }
+  .lede {
+    font-size: 21px;
+    line-height: 1.55;
+    color: var(--text-muted);
+    max-width: 720px;
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  @media (max-width: 640px) {
+    .hero {
+      padding-top: 56px;
+    }
+    .lede {
+      font-size: 18px;
+    }
+  }
+</style>
